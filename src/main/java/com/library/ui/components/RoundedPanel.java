@@ -10,7 +10,7 @@ import java.awt.LayoutManager;
 import java.awt.RenderingHints;
 
 public class RoundedPanel extends JPanel {
-    private int cornerRadius = 14;
+    private int cornerRadius = 10;
     private Color backgroundColor = ThemeColors.BG_CARD;
     private Color borderColor = ThemeColors.BORDER;
     private boolean showBorder = true;
@@ -27,20 +27,20 @@ public class RoundedPanel extends JPanel {
 
     public RoundedPanel(int radius) {
         super();
-        this.cornerRadius = radius;
+        this.cornerRadius = Math.min(radius, 10);
         setOpaque(false);
     }
 
     public RoundedPanel(int radius, Color bg) {
         super();
-        this.cornerRadius = radius;
+        this.cornerRadius = Math.min(radius, 10);
         this.backgroundColor = bg;
         setOpaque(false);
     }
 
     public RoundedPanel(int radius, Color bg, Color border) {
         super();
-        this.cornerRadius = radius;
+        this.cornerRadius = Math.min(radius, 10);
         this.backgroundColor = bg;
         this.borderColor = border;
         this.showBorder = border != null;
@@ -59,7 +59,7 @@ public class RoundedPanel extends JPanel {
     }
 
     public void setCornerRadius(int radius) {
-        this.cornerRadius = radius;
+        this.cornerRadius = Math.min(radius, 10);
         repaint();
     }
 

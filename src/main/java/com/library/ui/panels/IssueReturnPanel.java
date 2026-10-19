@@ -166,7 +166,7 @@ public class IssueReturnPanel extends JPanel {
             btn.setForeground(Color.WHITE);
             btn.setOpaque(true);
         } else {
-            btn.setBackground(new Color(243, 244, 246));
+            btn.setBackground(ThemeColors.BG_INPUT);
             btn.setForeground(ThemeColors.TEXT_MUTED);
             btn.setOpaque(true);
         }
@@ -188,7 +188,7 @@ public class IssueReturnPanel extends JPanel {
     }
 
     private RoundedPanel createIssueFormCard() {
-        RoundedPanel card = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel card = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         card.setLayout(new BorderLayout());
         card.setBorder(new EmptyBorder(22, 24, 22, 24));
 
@@ -249,7 +249,7 @@ public class IssueReturnPanel extends JPanel {
     }
 
     private RoundedPanel createReturnFormCard() {
-        RoundedPanel card = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel card = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         card.setLayout(new BorderLayout());
         card.setBorder(new EmptyBorder(22, 24, 22, 24));
 
@@ -337,7 +337,7 @@ public class IssueReturnPanel extends JPanel {
     }
 
     private RoundedPanel createMemberDetailsCard() {
-        RoundedPanel card = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel card = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         card.setLayout(new BorderLayout());
         card.setBorder(new EmptyBorder(22, 22, 22, 22));
 

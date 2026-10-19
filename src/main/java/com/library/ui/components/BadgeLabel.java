@@ -73,7 +73,7 @@ public class BadgeLabel extends JLabel {
                 break;
 
             default:
-                badgeBackground = new Color(243, 244, 246);
+                badgeBackground = ThemeColors.BG_INPUT;
                 badgeForeground = ThemeColors.TEXT_MUTED;
                 break;
         }

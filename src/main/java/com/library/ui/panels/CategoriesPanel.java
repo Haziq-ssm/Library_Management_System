@@ -73,7 +73,7 @@ public class CategoriesPanel extends JPanel {
         add(topContainer, BorderLayout.NORTH);
 
         // Center Table in Card
-        RoundedPanel tableCard = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel tableCard = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         tableCard.setLayout(new BorderLayout());
 
         String[] columns = {"#", "Category Name", "Description", "Books in Category", "Actions"};

@@ -86,7 +86,7 @@ public class ReportsPanel extends JPanel {
         };
         cmbReportType = new JComboBox<>(reports);
         cmbReportType.setFont(ThemeColors.FONT_BODY);
-        cmbReportType.setBackground(Color.WHITE);
+        cmbReportType.setBackground(ThemeColors.BG_CARD);
         cmbReportType.setPreferredSize(new Dimension(240, 34));
         cmbReportType.addActionListener(e -> loadSelectedReport());
         selectorBar.add(cmbReportType);
@@ -96,7 +96,7 @@ public class ReportsPanel extends JPanel {
         add(topContainer, BorderLayout.NORTH);
 
         // Center Table in Card
-        RoundedPanel tableCard = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel tableCard = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         tableCard.setLayout(new BorderLayout());
 
         tableModel = new DefaultTableModel();

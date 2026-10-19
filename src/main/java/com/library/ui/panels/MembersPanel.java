@@ -134,7 +134,7 @@ public class MembersPanel extends JPanel {
         add(topContainer, BorderLayout.NORTH);
 
         // Center Table in Card
-        RoundedPanel tableCard = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel tableCard = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         tableCard.setLayout(new BorderLayout());
 
         String[] columns = {"#", "Member ID", "Name", "Type", "Email", "Phone", "Status", "Actions"};
@@ -185,7 +185,7 @@ public class MembersPanel extends JPanel {
             btn.setForeground(Color.WHITE);
             btn.setOpaque(true);
         } else {
-            btn.setBackground(new Color(243, 244, 246));
+            btn.setBackground(ThemeColors.BG_INPUT);
             btn.setForeground(ThemeColors.TEXT_MUTED);
             btn.setOpaque(true);
         }

@@ -102,7 +102,7 @@ public class FinesPanel extends JPanel {
         add(topContainer, BorderLayout.NORTH);
 
         // Center Table in Card
-        RoundedPanel tableCard = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel tableCard = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         tableCard.setLayout(new BorderLayout());
 
         // Models
@@ -145,7 +145,7 @@ public class FinesPanel extends JPanel {
             btn.setForeground(Color.WHITE);
             btn.setOpaque(true);
         } else {
-            btn.setBackground(new Color(243, 244, 246));
+            btn.setBackground(ThemeColors.BG_INPUT);
             btn.setForeground(ThemeColors.TEXT_MUTED);
             btn.setOpaque(true);
         }
@@ -167,7 +167,7 @@ public class FinesPanel extends JPanel {
     private void installPendingActionColumn() {
         table.getColumnModel().getColumn(9).setCellRenderer((t, value, isSelected, hasFocus, row, column) -> {
             JButton btn = new JButton("Pay Fine");
-            btn.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            btn.setFont(ThemeColors.FONT_BADGE);
             btn.setBackground(ThemeColors.PRIMARY);
             btn.setForeground(Color.WHITE);
             btn.setFocusPainted(false);
@@ -181,7 +181,7 @@ public class FinesPanel extends JPanel {
             private int currentRow;
 
             {
-                btn.setFont(new Font("Segoe UI", Font.BOLD, 11));
+                btn.setFont(ThemeColors.FONT_BADGE);
                 btn.setBackground(ThemeColors.PRIMARY);
                 btn.setForeground(Color.WHITE);
                 btn.setFocusPainted(false);

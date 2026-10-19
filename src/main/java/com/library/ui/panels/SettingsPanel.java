@@ -96,6 +96,8 @@ public class SettingsPanel extends JPanel {
         rightCol.setLayout(new BoxLayout(rightCol, BoxLayout.Y_AXIS));
         rightCol.setOpaque(false);
 
+        rightCol.add(createAppearanceCard());
+        rightCol.add(Box.createVerticalStrut(20));
         rightCol.add(createDatabaseConfigCard());
         grid.add(rightCol);
 
@@ -112,8 +114,39 @@ public class SettingsPanel extends JPanel {
         add(scrollPane, BorderLayout.CENTER);
     }
 
+    private RoundedPanel createAppearanceCard() {
+        RoundedPanel card = new RoundedPanel(12, ThemeColors.BG_CARD, ThemeColors.BORDER);
+        card.setLayout(new BorderLayout(16, 0));
+        card.setBorder(new EmptyBorder(18, 20, 18, 20));
+
+        JPanel copy = new JPanel();
+        copy.setLayout(new BoxLayout(copy, BoxLayout.Y_AXIS));
+        copy.setOpaque(false);
+
+        JLabel title = new JLabel("Appearance");
+        title.setFont(ThemeColors.FONT_CARD_TITLE);
+        title.setForeground(ThemeColors.TEXT_DARK);
+        JLabel description = new JLabel("Use a darker interface across the application");
+        description.setFont(ThemeColors.FONT_SUBTEXT);
+        description.setForeground(ThemeColors.TEXT_MUTED);
+        copy.add(title);
+        copy.add(Box.createVerticalStrut(4));
+        copy.add(description);
+
+        JCheckBox darkModeToggle = new JCheckBox("Dark mode");
+        darkModeToggle.setFont(ThemeColors.FONT_BODY_BOLD);
+        darkModeToggle.setForeground(ThemeColors.TEXT_DARK);
+        darkModeToggle.setOpaque(false);
+        darkModeToggle.setSelected(ThemeColors.isDarkMode());
+        darkModeToggle.addActionListener(e -> parentFrame.applyTheme(darkModeToggle.isSelected()));
+
+        card.add(copy, BorderLayout.CENTER);
+        card.add(darkModeToggle, BorderLayout.EAST);
+        return card;
+    }
+
     private RoundedPanel createLibraryRulesCard() {
-        RoundedPanel card = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel card = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         card.setLayout(new BorderLayout());
         card.setBorder(new EmptyBorder(20, 22, 20, 22));
 
@@ -163,7 +196,7 @@ public class SettingsPanel extends JPanel {
     }
 
     private RoundedPanel createSecurityCard() {
-        RoundedPanel card = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel card = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         card.setLayout(new BorderLayout());
         card.setBorder(new EmptyBorder(20, 22, 20, 22));
 
@@ -203,7 +236,7 @@ public class SettingsPanel extends JPanel {
     }
 
     private RoundedPanel createDatabaseConfigCard() {
-        RoundedPanel card = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel card = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         card.setLayout(new BorderLayout());
         card.setBorder(new EmptyBorder(20, 22, 20, 22));
 

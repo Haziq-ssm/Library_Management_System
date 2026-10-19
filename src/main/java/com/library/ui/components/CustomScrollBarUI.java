@@ -35,7 +35,7 @@ public class CustomScrollBarUI extends BasicScrollBarUI {
 
     @Override
     protected void paintTrack(Graphics g, JComponent c, Rectangle trackBounds) {
-        g.setColor(new Color(248, 250, 252));
+        g.setColor(ThemeColors.BG_MAIN);
         g.fillRect(trackBounds.x, trackBounds.y, trackBounds.width, trackBounds.height);
     }
 
@@ -49,7 +49,7 @@ public class CustomScrollBarUI extends BasicScrollBarUI {
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
         int arc = 6;
-        g2.setColor(isDragging ? ThemeColors.PRIMARY_HOVER : (isThumbRollover() ? ThemeColors.PRIMARY : new Color(209, 213, 219)));
+        g2.setColor(isDragging ? ThemeColors.PRIMARY_HOVER : (isThumbRollover() ? ThemeColors.PRIMARY : ThemeColors.BORDER));
         g2.fillRoundRect(thumbBounds.x + 2, thumbBounds.y + 2, thumbBounds.width - 4, thumbBounds.height - 4, arc, arc);
 
         g2.dispose();

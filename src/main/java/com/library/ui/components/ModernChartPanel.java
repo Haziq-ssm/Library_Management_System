@@ -114,7 +114,7 @@ public class ModernChartPanel extends RoundedPanel {
 
         // Draw Y-Axis Grid & Labels (0, 10, 20, 30, 40)
         int steps = 4;
-        g2.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+        g2.setFont(ThemeColors.FONT_BADGE);
         FontMetrics fm = g2.getFontMetrics();
 
         for (int i = 0; i <= steps; i++) {

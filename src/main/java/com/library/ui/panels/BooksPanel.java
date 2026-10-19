@@ -136,7 +136,7 @@ public class BooksPanel extends JPanel {
 
         cmbCategory = new JComboBox<>(new String[]{"All Categories"});
         cmbCategory.setFont(ThemeColors.FONT_SUBTEXT);
-        cmbCategory.setBackground(Color.WHITE);
+        cmbCategory.setBackground(ThemeColors.BG_CARD);
         cmbCategory.setPreferredSize(new Dimension(140, 34));
         cmbCategory.addActionListener(e -> {
             currentPage = 1;
@@ -146,7 +146,7 @@ public class BooksPanel extends JPanel {
 
         cmbSort = new JComboBox<>(new String[]{"Sort by", "Title (A-Z)", "Title (Z-A)", "Author", "Available Copies"});
         cmbSort.setFont(ThemeColors.FONT_SUBTEXT);
-        cmbSort.setBackground(Color.WHITE);
+        cmbSort.setBackground(ThemeColors.BG_CARD);
         cmbSort.setPreferredSize(new Dimension(130, 34));
         cmbSort.addActionListener(e -> loadBooksData());
         rightControls.add(cmbSort);
@@ -158,7 +158,7 @@ public class BooksPanel extends JPanel {
         add(topContainer, BorderLayout.NORTH);
 
         // Center Table in Rounded Card
-        RoundedPanel tableCard = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel tableCard = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         tableCard.setLayout(new BorderLayout());
 
         String[] columns = {"#", "Book Title", "Author", "Category", "Status", "Available Copies", "Actions"};
@@ -214,7 +214,7 @@ public class BooksPanel extends JPanel {
             btn.setForeground(Color.WHITE);
             btn.setOpaque(true);
         } else {
-            btn.setBackground(new Color(243, 244, 246));
+            btn.setBackground(ThemeColors.BG_INPUT);
             btn.setForeground(ThemeColors.TEXT_MUTED);
             btn.setOpaque(true);
         }
@@ -308,7 +308,7 @@ public class BooksPanel extends JPanel {
                 btnPage.setForeground(Color.WHITE);
                 btnPage.setOpaque(true);
             } else {
-                btnPage.setBackground(Color.WHITE);
+                btnPage.setBackground(ThemeColors.BG_CARD);
                 btnPage.setForeground(ThemeColors.TEXT_DARK);
             }
             btnPage.addActionListener(e -> {

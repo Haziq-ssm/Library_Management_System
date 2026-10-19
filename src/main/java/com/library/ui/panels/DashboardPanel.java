@@ -101,7 +101,7 @@ public class DashboardPanel extends JPanel {
         p.add(titlePanel, BorderLayout.WEST);
 
         // Right side: Date Pill (Oct 18, 2026 Sunday)
-        RoundedPanel datePill = new RoundedPanel(16, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel datePill = new RoundedPanel(16, ThemeColors.BG_CARD, ThemeColors.BORDER);
         datePill.setLayout(new FlowLayout(FlowLayout.CENTER, 14, 6));
 
         String dateStr = DateUtil.formatHeaderDate(LocalDate.now());
@@ -195,7 +195,7 @@ public class DashboardPanel extends JPanel {
     }
 
     private JPanel createQuickActionsBar() {
-        RoundedPanel bar = new RoundedPanel(14, Color.WHITE, ThemeColors.BORDER);
+        RoundedPanel bar = new RoundedPanel(14, ThemeColors.BG_CARD, ThemeColors.BORDER);
         bar.setLayout(new FlowLayout(FlowLayout.LEFT, 15, 12));
         bar.setBorder(new EmptyBorder(2, 8, 2, 8));
 
@@ -322,11 +322,11 @@ public class DashboardPanel extends JPanel {
         textPanel.setOpaque(false);
 
         JLabel desc = new JLabel(act.getDescription());
-        desc.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        desc.setFont(ThemeColors.FONT_SUBTEXT);
         desc.setForeground(ThemeColors.TEXT_DARK);
 
         JLabel time = new JLabel(DateUtil.getRelativeTime(act.getCreatedAt()));
-        time.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+        time.setFont(ThemeColors.FONT_BADGE);
         time.setForeground(ThemeColors.TEXT_LIGHT);
 
         textPanel.add(desc);

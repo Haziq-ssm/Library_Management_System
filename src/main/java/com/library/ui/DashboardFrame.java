@@ -1,5 +1,7 @@
 package com.library.ui;
 
+import com.formdev.flatlaf.FlatDarkLaf;
+import com.formdev.flatlaf.FlatLightLaf;
 import com.library.model.Admin;
 import com.library.service.AuthService;
 import com.library.ui.components.RoundedPanel;
@@ -86,7 +88,7 @@ public class DashboardFrame extends JFrame {
         root.add(rightContainer, BorderLayout.CENTER);
 
         setContentPane(root);
-        navigateTo("dashboard");
+        navigateTo(currentActiveKey);
     }
 
     private JPanel createSidebarPanel() {
@@ -102,7 +104,7 @@ public class DashboardFrame extends JFrame {
 
         JLabel logoIcon = new JLabel(UIUtils.createIcon("book", 26, ThemeColors.PRIMARY));
         JLabel logoText = new JLabel("Library System");
-        logoText.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        logoText.setFont(ThemeColors.FONT_SECTION_TITLE);
         logoText.setForeground(ThemeColors.TEXT_DARK);
 
         brandPanel.add(logoIcon);
@@ -209,8 +211,10 @@ public class DashboardFrame extends JFrame {
         JPanel topBar = new JPanel(new BorderLayout());
         topBar.setBackground(ThemeColors.BG_TOPBAR);
         topBar.setPreferredSize(new Dimension(0, 64));
-        topBar.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, ThemeColors.BORDER));
-        topBar.setBorder(new EmptyBorder(10, 24, 10, 24));
+        topBar.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createMatteBorder(0, 0, 1, 0, ThemeColors.BORDER),
+            new EmptyBorder(10, 24, 10, 24)
+        ));
 
         // Global Search Bar on Left
         RoundedTextField searchField = new RoundedTextField("Search books, members...", 24);
@@ -349,6 +353,23 @@ public class DashboardFrame extends JFrame {
         if (p instanceof DashboardPanel) {
             ((DashboardPanel) p).refreshData();
         }
+    }
+
+    public void applyTheme(boolean darkMode) {
+        String activeKey = currentActiveKey;
+        ThemeColors.setDarkMode(darkMode);
+        if (darkMode) {
+            FlatDarkLaf.setup();
+        } else {
+            FlatLightLaf.setup();
+        }
+        UIManager.put("defaultFont", ThemeColors.FONT_BODY);
+        registeredPanels.clear();
+        sidebarButtons.clear();
+        currentActiveKey = activeKey;
+        initUI();
+        revalidate();
+        repaint();
     }
 
     private void performLogout() {

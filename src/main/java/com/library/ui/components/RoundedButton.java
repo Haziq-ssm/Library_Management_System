@@ -29,7 +29,7 @@ public class RoundedButton extends JButton {
     public RoundedButton(String text, boolean outline) {
         super(text);
         if (outline) {
-            this.normalColor = Color.WHITE;
+            this.normalColor = ThemeColors.BG_CARD;
             this.hoverColor = ThemeColors.PRIMARY_LIGHT;
             this.textColor = ThemeColors.PRIMARY;
             this.borderColor = ThemeColors.PRIMARY;

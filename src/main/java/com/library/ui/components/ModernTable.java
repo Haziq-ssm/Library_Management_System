@@ -28,7 +28,7 @@ public class ModernTable extends JTable {
         setSelectionForeground(ThemeColors.TEXT_DARK);
         setFont(ThemeColors.FONT_BODY);
         setForeground(ThemeColors.TEXT_DARK);
-        setBackground(Color.WHITE);
+        setBackground(ThemeColors.BG_CARD);
 
         // Header styling
         JTableHeader header = getTableHeader();
@@ -39,7 +39,7 @@ public class ModernTable extends JTable {
                 JLabel lbl = (JLabel) super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
                 lbl.setFont(ThemeColors.FONT_BODY_BOLD);
                 lbl.setForeground(ThemeColors.TEXT_MUTED);
-                lbl.setBackground(new Color(249, 250, 251)); // #F9FAFB
+                lbl.setBackground(ThemeColors.BG_INPUT);
                 lbl.setBorder(BorderFactory.createCompoundBorder(
                         BorderFactory.createMatteBorder(0, 0, 1, 0, ThemeColors.BORDER),
                         new EmptyBorder(8, 12, 8, 12)
@@ -60,7 +60,7 @@ public class ModernTable extends JTable {
                     lbl.setBackground(ThemeColors.PRIMARY_LIGHT);
                     lbl.setForeground(ThemeColors.TEXT_DARK);
                 } else {
-                    lbl.setBackground(row % 2 == 0 ? Color.WHITE : new Color(252, 253, 254));
+                    lbl.setBackground(row % 2 == 0 ? ThemeColors.BG_CARD : ThemeColors.BG_MAIN);
                     lbl.setForeground(ThemeColors.TEXT_DARK);
                 }
                 return lbl;
@@ -79,7 +79,7 @@ public class ModernTable extends JTable {
             public Component getTableCellRendererComponent(JTable table, Object value, boolean isSelected, boolean hasFocus, int row, int column) {
                 JPanel container = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 8));
                 container.setOpaque(true);
-                container.setBackground(isSelected ? ThemeColors.PRIMARY_LIGHT : (row % 2 == 0 ? Color.WHITE : new Color(252, 253, 254)));
+                container.setBackground(isSelected ? ThemeColors.PRIMARY_LIGHT : (row % 2 == 0 ? ThemeColors.BG_CARD : ThemeColors.BG_MAIN));
 
                 String val = value != null ? value.toString() : "";
                 badge.setBadgeType(val);
@@ -137,7 +137,7 @@ public class ModernTable extends JTable {
     private JPanel createActionPanel(int row, boolean isSelected, ActionCallback callback) {
         JPanel p = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 6));
         p.setOpaque(true);
-        p.setBackground(isSelected ? ThemeColors.PRIMARY_LIGHT : (row % 2 == 0 ? Color.WHITE : new Color(252, 253, 254)));
+        p.setBackground(isSelected ? ThemeColors.PRIMARY_LIGHT : (row % 2 == 0 ? ThemeColors.BG_CARD : ThemeColors.BG_MAIN));
 
         JButton btnEdit = new JButton(UIUtils.createIcon("edit", 16, ThemeColors.TEXT_MUTED));
         btnEdit.setToolTipText("Edit");
@@ -168,7 +168,7 @@ public class ModernTable extends JTable {
     public static JScrollPane createModernScrollPane(JTable table) {
         JScrollPane scrollPane = new JScrollPane(table);
         scrollPane.setBorder(BorderFactory.createMatteBorder(1, 1, 1, 1, ThemeColors.BORDER));
-        scrollPane.getViewport().setBackground(Color.WHITE);
+        scrollPane.getViewport().setBackground(ThemeColors.BG_CARD);
         scrollPane.getVerticalScrollBar().setUI(new CustomScrollBarUI());
         scrollPane.getHorizontalScrollBar().setUI(new CustomScrollBarUI());
         return scrollPane;

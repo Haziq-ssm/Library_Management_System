@@ -37,7 +37,7 @@ public class LoginFrame extends JFrame {
 
     private void initUI() {
         JPanel root = new JPanel(new GridLayout(1, 2));
-        root.setBackground(Color.WHITE);
+        root.setBackground(ThemeColors.BG_MAIN);
 
         // 1. Left Column: Branding & Illustration
         root.add(createLeftBrandingPanel());
@@ -60,12 +60,14 @@ public class LoginFrame extends JFrame {
                 int h = getHeight();
 
                 // Warm gradient background
-                GradientPaint gp = new GradientPaint(0, 0, new Color(255, 248, 242), 0, h, new Color(254, 237, 222));
+                Color gradientStart = ThemeColors.isDarkMode() ? new Color(37, 39, 42) : new Color(255, 248, 242);
+                Color gradientEnd = ThemeColors.isDarkMode() ? new Color(48, 41, 35) : new Color(254, 237, 222);
+                GradientPaint gp = new GradientPaint(0, 0, gradientStart, 0, h, gradientEnd);
                 g2.setPaint(gp);
                 g2.fillRect(0, 0, w, h);
 
                 // Decorative window arch background
-                g2.setColor(new Color(255, 225, 200, 100));
+                g2.setColor(ThemeColors.isDarkMode() ? new Color(255, 122, 38, 28) : new Color(255, 225, 200, 100));
                 int archW = Math.min(260, w - 80);
                 int archH = Math.min(320, h - 220);
                 int archX = (w - archW) / 2;
@@ -91,17 +93,17 @@ public class LoginFrame extends JFrame {
         iconLogo.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel lblTitle = new JLabel("Library Management");
-        lblTitle.setFont(new Font("Segoe UI", Font.BOLD, 26));
+        lblTitle.setFont(ThemeColors.FONT_HEADER_TITLE.deriveFont(Font.BOLD, 26));
         lblTitle.setForeground(ThemeColors.TEXT_DARK);
         lblTitle.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel lblTitle2 = new JLabel("System");
-        lblTitle2.setFont(new Font("Segoe UI", Font.BOLD, 26));
+        lblTitle2.setFont(ThemeColors.FONT_HEADER_TITLE.deriveFont(Font.BOLD, 26));
         lblTitle2.setForeground(ThemeColors.PRIMARY);
         lblTitle2.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel lblTagline = new JLabel("Manage Books | Track Borrowers | Build a Smarter Library");
-        lblTagline.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        lblTagline.setFont(ThemeColors.FONT_SUBTEXT);
         lblTagline.setForeground(ThemeColors.TEXT_MUTED);
         lblTagline.setAlignmentX(Component.CENTER_ALIGNMENT);
 
@@ -146,7 +148,7 @@ public class LoginFrame extends JFrame {
 
     private JPanel createRightLoginPanel() {
         JPanel right = new JPanel(new GridBagLayout());
-        right.setBackground(Color.WHITE);
+        right.setBackground(ThemeColors.BG_CARD);
         right.setBorder(new EmptyBorder(40, 50, 40, 50));
 
         JPanel formCard = new JPanel();
@@ -156,7 +158,7 @@ public class LoginFrame extends JFrame {
 
         // Welcome Back
         JLabel lblWelcome = new JLabel("Welcome Back");
-        lblWelcome.setFont(new Font("Segoe UI", Font.BOLD, 24));
+        lblWelcome.setFont(ThemeColors.FONT_HEADER_TITLE.deriveFont(Font.BOLD, 24));
         lblWelcome.setForeground(ThemeColors.TEXT_DARK);
 
         JLabel lblSub = new JLabel("Login to continue to your account");

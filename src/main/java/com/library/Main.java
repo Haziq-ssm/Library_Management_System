@@ -1,9 +1,11 @@
 package com.library;
 
 import com.formdev.flatlaf.FlatLightLaf;
+import com.formdev.flatlaf.FlatDarkLaf;
 import com.library.config.DBConnection;
 import com.library.dao.AdminDAO;
 import com.library.ui.LoginFrame;
+import com.library.ui.theme.ThemeColors;
 
 import javax.swing.*;
 import java.sql.Connection;
@@ -24,7 +26,12 @@ public class Main {
             UIManager.put("Button.arc", 10);
             UIManager.put("Component.arc", 10);
             UIManager.put("TextComponent.arc", 10);
-            FlatLightLaf.setup();
+            if (ThemeColors.isDarkMode()) {
+                FlatDarkLaf.setup();
+            } else {
+                FlatLightLaf.setup();
+            }
+            UIManager.put("defaultFont", ThemeColors.FONT_BODY);
         } catch (Exception e) {
             System.err.println("Notice: FlatLaf not found, using System Look and Feel: " + e.getMessage());
             try {
