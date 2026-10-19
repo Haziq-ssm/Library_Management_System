@@ -80,7 +80,9 @@ public class RoundedPanel extends JPanel {
         // Draw border
         if (showBorder && borderColor != null) {
             g2.setColor(borderColor);
-            g2.drawRoundRect(0, 0, width - 1, height - 1, cornerRadius, cornerRadius);
+            g2.setStroke(new java.awt.BasicStroke(1.25f));
+            g2.draw(new java.awt.geom.RoundRectangle2D.Float(0.5f, 0.5f,
+                    Math.max(0, width - 1.0f), Math.max(0, height - 1.0f), cornerRadius, cornerRadius));
         }
 
         g2.dispose();

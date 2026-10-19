@@ -90,7 +90,7 @@ public class ThemeColors {
             BG_SIDEBAR = new Color(30, 34, 39);
             BG_TOPBAR = new Color(30, 34, 39);
             BG_INPUT = new Color(42, 47, 53);
-            BORDER = new Color(59, 66, 74);
+            BORDER = new Color(79, 88, 98);
             DIVIDER = new Color(45, 50, 56);
             TEXT_DARK = new Color(231, 234, 238);
             TEXT_MUTED = new Color(170, 178, 188);
@@ -112,7 +112,7 @@ public class ThemeColors {
             BG_SIDEBAR = Color.WHITE;
             BG_TOPBAR = Color.WHITE;
             BG_INPUT = new Color(249, 250, 251);
-            BORDER = new Color(222, 226, 231);
+            BORDER = new Color(205, 212, 220);
             DIVIDER = new Color(237, 240, 243);
             TEXT_DARK = new Color(34, 42, 53);
             TEXT_MUTED = new Color(98, 109, 122);
